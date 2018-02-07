@@ -5,4 +5,5 @@ python:
   - "3.6"
 
 script:
-  python -m unittest -vvv
+  - python -m unittest -vvv
+  - flake8 ./data-structures
