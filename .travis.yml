@@ -6,4 +6,4 @@ python:
 
 script:
   - python -m unittest -vvv
-  - flake8 ./data-structures
+  - flake8 ./datastructures
