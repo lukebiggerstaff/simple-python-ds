@@ -1,4 +1,4 @@
-# Data Structure: Linked List [![Build Status](https://travis-ci.org/lukebiggerstaff/simple-python-ds.svg?branch=master)](https://travis-ci.org/lukebiggerstaff/simple-python-ds)
+# Data Structure: Hash Table [![Build Status](https://travis-ci.org/lukebiggerstaff/simple-python-ds.svg?branch=master)](https://travis-ci.org/lukebiggerstaff/simple-python-ds)
 
 ## Operations include
 - put - takes a key and value and hashes the key and stores the value in the hashed key location O(1)
