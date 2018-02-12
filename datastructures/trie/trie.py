@@ -21,8 +21,8 @@ class Trie(object):
     def __init__(self):
         self.root = Node()
 
-    def _is_last_fork(self, node, char):
-        return len(node.map) > 1 or node.map[char].is_end_char
+    def _is_last_fork(self, node):
+        return len(node.map) > 1 or node.is_end_char
 
     def insert(self, word):
         current = self.root
@@ -50,16 +50,16 @@ class Trie(object):
         last_fork = current, word[0]
         for char in word:
             if char in current.map:
-                if self._is_last_fork(current, char):
+                if self._is_last_fork(current):
                     last_fork = current, char
                 current = current.map[char]
             else:
                 return None
         if current.is_end_char is not True:
             return None
+        if len(current.map) > 0:
+            current.is_end_char = False
+            return None
         else:
             last_fork_node, last_fork_char = last_fork[0], last_fork[1]
-            if len(last_fork_node.map[last_fork_char].map) == 0:
-                del last_fork_node.map[last_fork_char]
-            else:
-                last_fork_node.map[last_fork_char].is_end_char = False
+            del last_fork_node.map[last_fork_char]

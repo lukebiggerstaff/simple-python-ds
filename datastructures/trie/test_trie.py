@@ -75,3 +75,15 @@ class TestTrie(unittest.TestCase):
         r4 = self.t.search('cats')
         self.assertFalse(r4)
         self.assertTrue(r3)
+
+    def test_trie_can_delete_with_multiple_root_chars(self):
+        self.t.insert('cat')
+        self.t.insert('dog')
+        r1 = self.t.search('cat')
+        r2 = self.t.search('dog')
+        self.assertTrue(r1)
+        self.assertTrue(r2)
+        self.t.delete('cat')
+        self.assertFalse('c' in self.t.root.map)
+        r3 = self.t.search('cat')
+        self.assertFalse(r3)
