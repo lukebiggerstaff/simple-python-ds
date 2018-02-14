@@ -77,6 +77,16 @@ class TestLinkedList(unittest.TestCase):
         l1.list_values()
         self.assertEqual(mock_stdout.getvalue(), '4 5 ')
 
+    @patch("sys.stdout", new_callable=io.StringIO)
+    def test_linked_list_can_reverse_itself(self, mock_stdout):
+        l1 = LinkedList()
+        l1.insert(1)
+        l1.insert(2)
+        l1.insert(3)
+        l1.reverse()
+        l1.list_values()
+        self.assertEqual(mock_stdout.getvalue(), '1 2 3 ')
+
 
 if __name__ == '__main__':
     unittest.main()
